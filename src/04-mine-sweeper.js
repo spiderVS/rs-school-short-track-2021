@@ -21,8 +21,77 @@
  *  [1, 1, 1]
  * ]
  */
-function minesweeper(/* matrix */) {
-  throw new Error('Not implemented');
+
+function minesweeper(matrix) {
+  const matrixCol = matrix[0].length;
+  const matrixRow = matrix.length;
+  let n = 0;
+
+  // const resMatrix = [...Array(matrixCol)].map (_e => Array(matrixRow));
+
+  // const resMatrix = new Array(matrix.length);
+  const resMatrix = Array(...Array(matrixRow)).map(() => Array(...Array(matrixCol)));
+
+  for (let j = 0; j < matrixRow; j++) {
+    for (let i = 0; i < matrixCol; i++) {
+      if (matrix[j][i - 1]) n++;
+      if (matrix[j][i + 1]) n++;
+
+      if ((i - 1 >= 0) && (j - 1 >= 0)) {
+        if (matrix[j - 1][i - 1]) n++;
+      }
+      if (j - 1 >= 0) {
+        if (matrix[j - 1][i]) n++;
+      }
+      if ((j - 1 >= 0) && (i + 1 < matrixCol)) {
+        if (matrix[j - 1][i + 1]) n++;
+      }
+
+      if ((j + 1 < matrixRow) && (i - 1 >= 0)) {
+        if (matrix[j + 1][i - 1]) n++;
+      }
+      if (j + 1 < matrixRow) {
+        if (matrix[j + 1][i]) n++;
+      }
+      if ((j + 1 < matrixRow) && (i + 1 < matrixCol)) {
+        if (matrix[j + 1][i + 1]) n++;
+      }
+      resMatrix[j][i] = n;
+      n = 0;
+    }
+  }
+
+  return resMatrix;
 }
 
 module.exports = minesweeper;
+
+// console.log(minesweeper([
+//   [true, false, false],
+//   [false, true, false],
+//   [false, false, false],
+// ]));
+
+// console.log(minesweeper([
+//   [false, false, false],
+//   [false, false, false],
+// ]));
+
+// [
+//   [0, 0, 0],
+//   [0, 0, 0],
+// ]
+
+// let Arr = [
+//   [true, false, false],
+//   [false, true, false],
+//   [false, false, false]
+// ];
+
+// console.log (Arr[-1][-1]);
+
+// [
+//   [1, 2, 1],
+//   [2, 1, 1],
+//   [1, 1, 1],
+// ],
