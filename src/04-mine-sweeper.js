@@ -27,9 +27,6 @@ function minesweeper(matrix) {
   const matrixRow = matrix.length;
   let n = 0;
 
-  // const resMatrix = [...Array(matrixCol)].map (_e => Array(matrixRow));
-
-  // const resMatrix = new Array(matrix.length);
   const resMatrix = Array(...Array(matrixRow)).map(() => Array(...Array(matrixCol)));
 
   for (let j = 0; j < matrixRow; j++) {
@@ -65,33 +62,3 @@ function minesweeper(matrix) {
 }
 
 module.exports = minesweeper;
-
-// console.log(minesweeper([
-//   [true, false, false],
-//   [false, true, false],
-//   [false, false, false],
-// ]));
-
-// console.log(minesweeper([
-//   [false, false, false],
-//   [false, false, false],
-// ]));
-
-// [
-//   [0, 0, 0],
-//   [0, 0, 0],
-// ]
-
-// let Arr = [
-//   [true, false, false],
-//   [false, true, false],
-//   [false, false, false]
-// ];
-
-// console.log (Arr[-1][-1]);
-
-// [
-//   [1, 2, 1],
-//   [2, 1, 1],
-//   [1, 1, 1],
-// ],
