@@ -21,7 +21,7 @@ function findIndex(array, value) {
     if (array[mid] === value) return mid;
     if (array[end] === value) return end;
     if (array[mid] > value) end = mid;
-    else start = mid;
+    else start = mid + 1;
   }
   return -1;
 }
